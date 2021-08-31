@@ -49,8 +49,11 @@ RUN set -ex; \
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
+
 RUN dpkg-reconfigure locales
 
+RUN sudo apt-get update && sudo apt-get install -y obs-studio
+RUN sudo apt-get install -y mkvtoolnix mkvtoolnix-gui
 RUN sudo apt-get update && sudo apt-get install -y obs-studio
 
 COPY . /app
